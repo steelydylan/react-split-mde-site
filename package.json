@@ -1,0 +1,19 @@
+{
+  "name": "zenn-mde-site",
+  "version": "1.0.0",
+  "description": "",
+  "main": "next.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^10.0.4",
+    "nextra": "^0.3.2",
+    "nextra-theme-docs": "^1.0.4",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
