@@ -5,7 +5,7 @@
   "main": "next.config.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "next start",
+    "dev": "next",
     "start": "next start",
     "build": "next build"
   },
@@ -16,7 +16,7 @@
     "next": "^10.0.4",
     "nextra": "^0.3.2",
     "nextra-theme-docs": "^1.0.4",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1"
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
   }
 }
