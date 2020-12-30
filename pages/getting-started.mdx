@@ -5,19 +5,13 @@
 Inside your React project directory, run the following:
 
 ```sh
-yarn add zenn-mde
+yarn add react-split-mde
 ```
 
 Or with npm:
 
 ```sh
-npm install zenn-mde
-```
-
-For the quick start, You should install the following packages as well
-
-```sh
-yarn add zenn-content-css zenn-markdown-html
+npm install react-split-mde
 ```
 
 ## Quick Start
@@ -26,10 +20,10 @@ You can import `Editor` component as follows
 
 
 ```js
-import { useState } from "react"
-import { Editor } from "zenn-mde"
+import { useState } from "react";
+import { Editor } from "react-split-mde";
 
-const defaultValue = "# Zenn MDE";
+const defaultValue = "# React Split MDE";
 
 export const EditorDemo = () => {
   const [value, setValue] = useState(defaultValue);
