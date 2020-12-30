@@ -1,2 +1,53 @@
+import { EditorDemo } from '../components/EditorDemo'
+
 # Zenn MDE
 
+Zenn MDE is a next generation markdown editor with high performance used at https://zenn.dev/
+
+<EditorDemo />
+
+## Overview
+
+```js
+import { useState } from "react"
+import { Editor } from "zenn-mde"
+import "zenn-mde/css/editor.css"
+import "zenn-content-css"
+import markdownHTML, { enablePreview } from "zenn-markdown-html";
+enablePreview();
+
+const defaultValue = "# Zenn MDE";
+
+export const EditorDemo = () => {
+  const [value, setValue] = useState(defaultValue);
+
+  const handleValueChange = (newValue) => {
+    setValue(newValue);
+  }
+
+  return (<Editor 
+    previewClassName="znc"
+    value={value} 
+    parser={markdownHTML}
+    onChange={handleValueChange} 
+  />)
+}
+```
+
+In this example, `Editor` component accepts `parser` function which converts `markdown` into html.
+`zenn-markdown-html` module is very useful as the `parser` function.
+
+## Features
+
+- customizable key bindings
+- having useful event emitter to change text contents
+
+## Community
+
+<p className="flex h-6">
+  <img alt="stars" src="https://badgen.net/github/stars/steelydylan/zenn-mde" className="inline-block mr-2"/>
+  <img alt="downloads" src="https://badgen.net/npm/dt/zenn-mde" className="inline-block mr-2"/>
+  <img alt="license" src="https://badgen.net/npm/license/zenn-mde" className="inline-block mr-2"/>
+</p>
+
+Follow [@steelydylan](https://twitter.com/steelydylan) on Twitter for future project updates.

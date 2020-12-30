@@ -16,7 +16,12 @@
     "next": "^10.0.4",
     "nextra": "^0.3.2",
     "nextra-theme-docs": "^1.0.4",
+    "raw-loader": "^4.0.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "zenn-content-css": "^0.1.64",
+    "zenn-embed-elements": "^0.1.65",
+    "zenn-markdown-html": "^0.1.66",
+    "zenn-mde": "^1.4.3"
   }
 }

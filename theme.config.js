@@ -15,7 +15,7 @@ export default {
   footerEditOnGitHubLink: true, // will link to the docs repo
   logo: <>
     <svg>...</svg>
-    <span>Next Generation Markdown Editor</span>
+    <span>Zenn MDE</span>
   </>,
   head: <>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
