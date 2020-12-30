@@ -1,9 +1,13 @@
+---
+title: Introduction
+---
+
 # React Split MDE
 
 React Split MDE is a next generation markdown editor with high performance used at https://zenn.dev/
 
 <iframe src="https://codesandbox.io/embed/vigilant-hermann-1gqm0?fontsize=14&hidenavigation=1&theme=dark&view=preview"
-  style={{ width: "100%", height: "500px", marginTop: "30px", border: "0", borderRadius: "4px", overflow: "hidden" }}
+  style={{ width: "100%", height: "500px", marginTop: "30px", border: "0", overflow: "hidden" }}
   title="vigilant-hermann-1gqm0"
   allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
@@ -33,13 +37,16 @@ export const EditorDemo = () => {
 }
 ```
 
-In this example, `Editor` component accepts `parser` function which converts `markdown` into html.
-`zenn-markdown-html` module is very useful as the `parser` function.
+In this example, `Editor` component accepts `onChange` and `value` props to update editor value.
 
 ## Features
 
-- customizable key bindings
-- having useful event emitter to change text contents
+- Customizable key bindings
+- Having useful event emitter to change text contents
+- Scroll sync
+- Automatic list on new lines
+- Indent line by pressing tab key
+- TypeScript Friendly
 
 ## Community
 

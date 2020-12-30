@@ -18,10 +18,10 @@ npm install react-split-mde
 
 You can import `Editor` component as follows
 
-
 ```js
 import { useState } from "react"
 import { Editor } from "react-split-mde"
+import "react-split-mde/css/index.css"
 
 const defaultValue = "# React Split MDE"
 
@@ -39,5 +39,58 @@ export const EditorDemo = () => {
 }
 ```
 
+## Customize
+
+### Provider
+
+With provider, You can control textarea as you want.
+It's useful like when you want to add image upload functionality on it.
 
 
+```ts
+import { useState, useCallback } from "react"
+import { Editor, useProvider } from "react-split-mde"
+import "react-split-mde/css/index.css"
+
+const defaultValue = "# React Split MDE"
+
+export const EditorDemo = () => {
+  const [emit, Provider] = useProvider()
+  const [value, setValue] = useState(defaultValue)
+
+  const handleImageUpload = useCallback(
+    async (e: React.ChangeEvent<HTMLInputElement>) => {
+      const uploadingMsg = "![](now uploading...)";
+      emit({
+        type: "insert",
+        text: uploadingMsg,
+      });
+      await new Promise((resolve) => {
+        setTimeout(() => resolve(), 1000);
+      });
+      emit({
+        type: "replace",
+        targetText: uploadingMsg,
+        text: "![](https://source.unsplash.com/1600x900/?nature,water)",
+      });
+    },
+    []
+  )
+
+  const handleValueChange = (newValue: string) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Provider>
+      <input type="file" onChange={handleImageUpload} />
+      <Editor
+        value={value} 
+        onChange={handleValueChange} 
+      />
+    </Provider>
+  )
+}
+```
+
+### Key Bindings
