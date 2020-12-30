@@ -22,3 +22,29 @@ yarn add zenn-content-css zenn-markdown-html
 
 ## Quick Start
 
+You can import `Editor` component as follows
+
+
+```js
+import { useState } from "react"
+import { Editor } from "zenn-mde"
+
+const defaultValue = "# Zenn MDE";
+
+export const EditorDemo = () => {
+  const [value, setValue] = useState(defaultValue);
+
+  const handleValueChange = (newValue) => {
+    setValue(newValue);
+  }
+
+  return (<Editor 
+    previewClassName="znc"
+    value={value} 
+    onChange={handleValueChange} 
+  />)
+}
+```
+
+
+

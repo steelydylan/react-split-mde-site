@@ -4,7 +4,7 @@ export default {
   docsRepository: 'https://github.com/steelydylan/zenn-mde-site', // docs repo
   branch: 'master', // branch of docs
   path: '/', // path of docs
-  titleSuffix: ' – Zenn MDE',
+  titleSuffix: ' – React Split MDE',
   nextLinks: true,
   prevLinks: true,
   search: true,
@@ -15,11 +15,11 @@ export default {
   footerEditOnGitHubLink: true, // will link to the docs repo
   logo: <>
     <svg>...</svg>
-    <span>Zenn MDE</span>
+    <span>React Split MDE</span>
   </>,
   head: <>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Zenn MDE: the next docs builder" />
-    <meta name="og:title" content="Zenn MDE: the next docs builder" />
+    <meta name="description" content="React Split MDE: the next docs builder" />
+    <meta name="og:title" content="React Split MDE: the next docs builder" />
   </>
 }
