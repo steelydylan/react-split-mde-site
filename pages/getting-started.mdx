@@ -20,20 +20,19 @@ You can import `Editor` component as follows
 
 
 ```js
-import { useState } from "react";
-import { Editor } from "react-split-mde";
+import { useState } from "react"
+import { Editor } from "react-split-mde"
 
-const defaultValue = "# React Split MDE";
+const defaultValue = "# React Split MDE"
 
 export const EditorDemo = () => {
-  const [value, setValue] = useState(defaultValue);
+  const [value, setValue] = useState(defaultValue)
 
   const handleValueChange = (newValue) => {
-    setValue(newValue);
+    setValue(newValue)
   }
 
-  return (<Editor 
-    previewClassName="znc"
+  return (<Editor
     value={value} 
     onChange={handleValueChange} 
   />)

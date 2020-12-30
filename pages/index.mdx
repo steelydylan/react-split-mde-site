@@ -1,32 +1,33 @@
-import { EditorDemo } from '../components/EditorDemo'
-
 # React Split MDE
 
 React Split MDE is a next generation markdown editor with high performance used at https://zenn.dev/
 
-<EditorDemo />
+<iframe src="https://codesandbox.io/embed/vigilant-hermann-1gqm0?fontsize=14&hidenavigation=1&theme=dark&view=preview"
+  style={{ width: "100%", height: "500px", border: "0", borderRadius: "4px", overflow: "hidden" }}
+  title="vigilant-hermann-1gqm0"
+  allow="accelerometer; ambient-light-sensor; camera; encrypted-media; geolocation; gyroscope; hid; microphone; midi; payment; usb; vr; xr-spatial-tracking"
+  sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
+></iframe>
 
 ## Overview
 
 
 ```js
-import { useState } from "react";
-import { Editor } from "react-split-mde";
-import "react-split-mde/css/editor.css";
+import { useState } from "react"
+import { Editor } from "react-split-mde"
+import "react-split-mde/css/index.css"
 
-const defaultValue = "# React Split MDE";
+const defaultValue = "# React Split MDE"
 
 export const EditorDemo = () => {
-  const [value, setValue] = useState(defaultValue);
+  const [value, setValue] = useState(defaultValue)
 
   const handleValueChange = (newValue) => {
-    setValue(newValue);
+    setValue(newValue)
   }
 
   return (<Editor 
-    previewClassName="znc"
-    value={value} 
-    parser={markdownHTML}
+    value={value}
     onChange={handleValueChange} 
   />)
 }

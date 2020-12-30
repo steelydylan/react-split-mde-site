@@ -19,6 +19,7 @@
     "raw-loader": "^4.0.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-split-mde": "^0.1.1",
     "zenn-content-css": "^0.1.64",
     "zenn-embed-elements": "^0.1.65",
     "zenn-markdown-html": "^0.1.66",

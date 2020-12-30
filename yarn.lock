@@ -2881,6 +2881,13 @@ json5@^2.1.2:
   dependencies:
     minimist "^1.2.5"
 
+katex@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/katex/-/katex-0.11.1.tgz#df30ca40c565c9df01a466a00d53e079e84ffaa2"
+  integrity sha512-5oANDICCTX0NqYIyAiFCCwjQ7ERu3DQG2JFHLbYOf+fXaMoH8eg/zOq5WSYJsKMi/QebW+Eh3gSM+oss1H/bww==
+  dependencies:
+    commander "^2.19.0"
+
 katex@^0.12.0:
   version "0.12.0"
   resolved "https://registry.yarnpkg.com/katex/-/katex-0.12.0.tgz#2fb1c665dbd2b043edcf8a1f5c555f46beaa0cb9"
@@ -3101,6 +3108,10 @@ markdown-it-task-lists@^2.1.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/markdown-it-task-lists/-/markdown-it-task-lists-2.1.1.tgz#f68f4d2ac2bad5a2c373ba93081a1a6848417088"
   integrity sha512-TxFAc76Jnhb2OUu+n3yz9RMu4CwGfaT788br6HhEDlvWfdeJcLUsxk1Hgw2yJio0OXsxv7pyIPmvECY7bMbluA==
+
+"markdown-it-texmath@git+https://github.com/catnose99/markdown-it-texmath.git":
+  version "0.8.0"
+  resolved "git+https://github.com/catnose99/markdown-it-texmath.git#d87ff46711573e8206296c827e66c3e97a8898c7"
 
 markdown-it@^11.0.0, markdown-it@^11.0.1:
   version "11.0.1"
@@ -4092,6 +4103,20 @@ react-refresh@0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
   integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
+
+react-split-mde@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/react-split-mde/-/react-split-mde-0.1.1.tgz#9d9e9e8257db68cef00c76b295334795dd49e593"
+  integrity sha512-w8lxtEF5UZx20hZKwOLfRKpHNv3gxwRaCp+KWfqGo5zjOx0XPSjLjw5hx7JJ8/HNLYofN5+hrqcgNMvVWRnLPg==
+  dependencies:
+    "@types/highlight.js" "^9.12.4"
+    eventmit "^1.1.0"
+    highlight.js "^10.2.0"
+    morphdom "^2.6.1"
+    react-textarea-autosize "^8.3.0"
+    use-eventmit "^1.0.3"
+    xss "^1.0.8"
+    zenn-markdown-html "0.1.53"
 
 react-textarea-autosize@^8.3.0:
   version "8.3.0"
@@ -5494,6 +5519,25 @@ zenn-embed-elements@^0.1.65:
   version "0.1.65"
   resolved "https://registry.yarnpkg.com/zenn-embed-elements/-/zenn-embed-elements-0.1.65.tgz#d063f892e0419b281ed7ecd17c5743783c2d6320"
   integrity sha512-Fhd4YcDCsizadtMN15T+BWziA19NEnUqhDsVdxdYMjjVfPB1SsRxRAaj1W00wEJZ4greKD6ngt0EB3whv1sYlg==
+
+zenn-markdown-html@0.1.53:
+  version "0.1.53"
+  resolved "https://registry.yarnpkg.com/zenn-markdown-html/-/zenn-markdown-html-0.1.53.tgz#1067d618a161503b13d53c8a53bd445957777531"
+  integrity sha512-DN2t576JOdpY7M+Ho+/yH8+kpNoDjKhVQ0OObeMZeXBqTvN5LMDPj2XlKFIzTyiVrZnvPnRdNRWPWXmPMD0qUQ==
+  dependencies:
+    "@steelydylan/markdown-it-imsize" "^1.0.2"
+    "@types/prismjs" "^1.16.1"
+    katex "^0.11.1"
+    markdown-it "^11.0.0"
+    markdown-it-anchor "^5.3.0"
+    markdown-it-container "^2.0.0"
+    markdown-it-custom-block "git+https://github.com/catnose99/markdown-it-custom-block.git"
+    markdown-it-footnote "^3.0.2"
+    markdown-it-inline-comments "^1.0.1"
+    markdown-it-link-attributes "^3.0.0"
+    markdown-it-task-lists "^2.1.1"
+    markdown-it-texmath "git+https://github.com/catnose99/markdown-it-texmath.git"
+    prismjs "^1.22.0"
 
 zenn-markdown-html@^0.1.66:
   version "0.1.66"

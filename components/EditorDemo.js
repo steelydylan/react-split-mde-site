@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react"
-import { Editor } from "zenn-mde"
-import "zenn-mde/css/editor.css"
-import "zenn-content-css"
-import markdownHTML, { enablePreview } from "zenn-markdown-html";
+import { Editor } from "react-split-mde"
+import "react-split-mde/css/index.css"
 import markdown from "./markdown.txt";
-enablePreview();
 
 const defaultValue = markdown;
 
@@ -20,9 +17,7 @@ export const EditorDemo = () => {
   }
   return (<div className="editor-demo">
     <Editor 
-      previewClassName="znc"
       value={value} 
-      parser={markdownHTML}
       onChange={handleValueChange} 
       previewCallback={{
         onBeforeNodeDiscarded(node) {
