@@ -1,1 +1,59 @@
 # Provider
+
+With provider, You can control textarea as you want.
+It's useful like when you want to add image upload functionality on it.
+
+```ts
+import { useState, useCallback } from "react"
+import { Editor, useProvider } from "react-split-mde"
+import "react-split-mde/css/index.css"
+
+const defaultValue = "# React Split MDE"
+
+export const EditorDemo = () => {
+  const [emit, Provider] = useProvider()
+  const [value, setValue] = useState(defaultValue)
+
+  const handleImageUpload = useCallback(
+    async (e) => {
+      const uploadingMsg = "![](now uploading...)";
+      emit({
+        type: "insert",
+        text: uploadingMsg,
+      });
+      await new Promise((resolve) => {
+        setTimeout(() => resolve(), 1000);
+      });
+      emit({
+        type: "replace",
+        targetText: uploadingMsg,
+        text: "![](https://source.unsplash.com/1600x900/?nature,water)",
+      });
+    },
+    []
+  )
+
+  const handleValueChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (
+    <Provider>
+      <input type="file" onChange={handleImageUpload} />
+      <Editor
+        value={value} 
+        onChange={handleValueChange} 
+      />
+    </Provider>
+  )
+}
+```
+
+## Event Types
+
+- `emit({ type: 'insert', text: string })`: insert text at the cursor position
+- `emit({ type: 'replace', targetText: string, text: string })`: replace the textarea string from `targetText` to `text`
+- `emit({ type: 'undo' })`: undo the textarea value
+- `emit({ type: 'redo' })`: redo the textarea value
+- `emit({ type: 'clear' })`: clear the textarea value
+- `emit({ type: 'focus' })`: forcus to the textarea

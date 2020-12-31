@@ -1,1 +1,81 @@
 # Commands
+
+The `Editor` component accepts `commands` props which will be fired when you press some key on the textarea.
+Then you should pass the `defaultCommands` imported from `react-split-mde`,
+Otherwise all key bindings functionality won't work such as `auto list on new line`.
+
+```ts
+import { useState } from "react"
+import { Editor, defaultCommands } from "react-split-mde"
+import "react-split-mde/css/index.css"
+
+const defaultValue = "# React Split MDE"
+
+export const EditorDemo = () => {
+  const [value, setValue] = useState(defaultValue)
+
+  const handleValueChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (<Editor
+    value={value} 
+    onChange={handleValueChange}
+    commands={
+      ...defaultCommands,
+      save: (textarea, option) => {
+        const { composing, code, shiftKey, metaKey, ctrlKey } = option;
+        if ((metaKey || ctrlKey) && !shiftKey) {
+          if (!composing && code === EnterKey) {
+            // You can define save function here
+            return { stop: true, change: false };
+          }
+        }
+      },
+    }
+  />)
+}
+```
+
+## Command Function
+
+Each command function will accept two arguments
+
+- `textarea` HTMLTextAreaElement
+- `option` CommandOption
+
+and command function should return `void` or `{ stop: boolean; change: boolean }`
+When `stop` is `true` it will prevent default behavior of textarea.
+When `change` is `false` the entered text won't be filled in textarea
+
+## With TypeScript
+
+You can import `CommandOption` type to make typed command function as follows
+
+```ts
+import { CommandOption } from "react-split-mde"
+
+const saveCommand = (textarea: TextAreaElement, option: CommandOption) => {
+  const { composing, code, shiftKey, metaKey, ctrlKey } = option;
+  if ((metaKey || ctrlKey) && !shiftKey) {
+    if (!composing && code === EnterKey) {
+      // You can define save function here
+      return { stop: true, change: false };
+    }
+  }
+}
+```
+
+## `CommandOption` Properties
+
+- line: `string` string from the beginning of the line to the cursor position where the cursor exists
+- lineAll: `string` the all string of the line where the cursor exsits
+- value: `string` textarea value
+- code: `string`  Entered key value such as `a`, `b`, `c`
+- shiftKey: `boolean` When ShiftKey is pressed then `true`
+- ctrlKey: `boolean` When ctrlKey is pressed then `true`
+- metaKey: `boolean` When metaKey is pressed then `true`
+- start: `number` start position of the selection
+- end: `number` end position of the selection
+- composing: `boolean` text composition system such as an input method editor starts a new composition session, when sesseion alives, then `true` else `false`
+- emit: `(event: EmitEvent) => void` `EventEmitter` function to control the textarea

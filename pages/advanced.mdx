@@ -1,0 +1,60 @@
+# Advanced
+
+## With ServiceWorker
+
+You can use your own parser to convert markdown into html. 
+ServiceWorker will be very useful to improve the performance of the editor.
+
+markdown.worker.ts
+
+```ts
+const ctx: Worker = self as any;
+ctx.Prism = {}
+ctx.Prism.disableWorkerMessageHandler = true;
+
+// you have to disable prism worker handle option first
+import markdownHTML, { enablePreview } from "zenn-markdown-html";
+
+enablePreview();
+// Respond to message from parent thread
+ctx.addEventListener("message", (event) => {
+  const result = markdownHTML(event.data);
+  ctx.postMessage(result);
+});
+```
+
+editor.ts
+
+```ts
+import Worker from "worker-loader!./worker";
+import pEvent from "p-event";
+import { useState, useMemo } from "react"
+import { Editor } from "react-split-mde"
+import "react-split-mde/css/index.css"
+
+const defaultValue = "# React Split MDE"
+
+export const EditorDemo = () => {
+  const worker = useMemo(() => {
+    const w = new Worker();
+    return w;
+  }, []);
+  const [value, setValue] = useState(defaultValue)
+
+  const handleValueChange = (newValue: string) => {
+    setValue(newValue)
+  }
+
+  const handleMarkdown = async (str: string) => {
+    worker.postMessage(str);
+    const e = await pEvent(worker, "message");
+    return e.data;
+  };
+
+  return (<Editor 
+    value={value}
+    parser={handleMarkdown}
+    onChange={handleValueChange} 
+  />)
+}
+```
