@@ -1,0 +1,15 @@
+# Props
+
+## Editor Props
+
+- commands?: `Record<string, Command>` 
+- previewClassName?: `string` preview area className
+- textareaClassName?: `string` textarea className
+- previewCallback?: `Record<string, (node: any) => any>`
+- parser?: `(text: string) => Promise<string>` parser to convert markdown to html. you can use your own parser if you want
+- value: `string` textarea value
+- onChange?: `(value: string) => void` when textarea value is changed it will be fired
+- psudoMode?: `boolean` highlight textarea
+- debounceTime?: `number` time to take until textarea markdown takes effect to preview area
+- scrollSync?: `boolean` preview area will be scrolled automatically accordance with the textarea scroll
+- placeholder?: `string` textarea placeholder

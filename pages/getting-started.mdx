@@ -59,7 +59,7 @@ export const EditorDemo = () => {
   const [value, setValue] = useState(defaultValue)
 
   const handleImageUpload = useCallback(
-    async (e: React.ChangeEvent<HTMLInputElement>) => {
+    async (e) => {
       const uploadingMsg = "![](now uploading...)";
       emit({
         type: "insert",
@@ -77,7 +77,7 @@ export const EditorDemo = () => {
     []
   )
 
-  const handleValueChange = (newValue: string) => {
+  const handleValueChange = (newValue) => {
     setValue(newValue)
   }
 
@@ -94,3 +94,42 @@ export const EditorDemo = () => {
 ```
 
 ### Key Bindings
+
+The `Editor` component accepts `commands` props which will be fired when you press some key on the textarea.
+Then you should pass the `defaultCommands` imported from `react-split-mde`,
+Otherwise all key bindings functionality won't work such as `auto list on new line`.
+
+The follwing code is the example how to fire the event when enter the both `Enter` and `command` key at the same time.
+
+```ts
+import { useState } from "react"
+import { Editor, defaultCommands } from "react-split-mde"
+import "react-split-mde/css/index.css"
+
+const defaultValue = "# React Split MDE"
+
+export const EditorDemo = () => {
+  const [value, setValue] = useState(defaultValue)
+
+  const handleValueChange = (newValue) => {
+    setValue(newValue)
+  }
+
+  return (<Editor
+    value={value} 
+    onChange={handleValueChange}
+    commands={
+      ...defaultCommands,
+      save: (textarea, option) => {
+        const { composing, code, shiftKey, metaKey, ctrlKey } = option;
+        if ((metaKey || ctrlKey) && !shiftKey) {
+          if (!composing && code === EnterKey) {
+            // You can define save function here
+            return { stop: true, change: false };
+          }
+        }
+      },
+    }
+  />)
+}
+```
