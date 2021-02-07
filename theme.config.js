@@ -19,7 +19,7 @@ export default {
   </>,
   head: <>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="React Split MDE: the next docs builder" />
-    <meta name="og:title" content="React Split MDE: the next docs builder" />
+    <meta name="description" content="React Split MDE: the next markdown editor" />
+    <meta name="og:title" content="React Split MDE: the next markdown editor" />
   </>
 }
