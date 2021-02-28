@@ -30,6 +30,7 @@ import Worker from "worker-loader!./markdown.worker";
 import pEvent from "p-event";
 import { useState, useMemo } from "react"
 import { Editor } from "react-split-mde"
+import { parser } from 'react-split-mde/lib/parser';
 import "react-split-mde/css/index.css"
 
 const defaultValue = "# React Split MDE"
@@ -53,6 +54,7 @@ export const EditorDemo = () => {
 
   return (<Editor 
     value={value}
+    parser={parser}
     parser={handleMarkdown}
     onChange={handleValueChange} 
   />)

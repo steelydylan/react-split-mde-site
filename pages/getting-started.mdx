@@ -6,12 +6,14 @@ Inside your React project directory, run the following:
 
 ```sh
 yarn add react-split-mde
+yarn add zenn-markdown-html
 ```
 
 Or with npm:
 
 ```sh
 npm install react-split-mde
+npm install zenn-markdown-html
 ```
 
 ## Quick Start
@@ -21,6 +23,7 @@ You can import `Editor` component as follows
 ```js
 import { useState } from "react"
 import { Editor } from "react-split-mde"
+import { parser } from 'react-split-mde/lib/parser';
 import "react-split-mde/css/index.css"
 
 const defaultValue = "# React Split MDE"
@@ -33,7 +36,8 @@ export const EditorDemo = () => {
   }
 
   return (<Editor
-    value={value} 
+    value={value}
+    parser={parser}
     onChange={handleValueChange} 
   />)
 }
@@ -50,6 +54,7 @@ It's useful like when you want to add image upload functionality on it.
 ```ts
 import { useState, useCallback } from "react"
 import { Editor, useProvider } from "react-split-mde"
+import { parser } from 'react-split-mde/lib/parser';
 import "react-split-mde/css/index.css"
 
 const defaultValue = "# React Split MDE"
@@ -85,7 +90,8 @@ export const EditorDemo = () => {
     <Provider>
       <input type="file" onChange={handleImageUpload} />
       <Editor
-        value={value} 
+        value={value}
+        parser={parser}
         onChange={handleValueChange} 
       />
     </Provider>
@@ -104,6 +110,7 @@ The follwing code is the example how to fire the event when enter the both `Ente
 ```ts
 import { useState } from "react"
 import { Editor, defaultCommands } from "react-split-mde"
+import { parser } from 'react-split-mde/lib/parser';
 import "react-split-mde/css/index.css"
 
 const defaultValue = "# React Split MDE"
@@ -118,6 +125,7 @@ export const EditorDemo = () => {
   return (<Editor
     value={value} 
     onChange={handleValueChange}
+    parser={parser}
     commands={
       ...defaultCommands,
       save: (textarea, option) => {

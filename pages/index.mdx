@@ -13,12 +13,20 @@ React Split MDE is a TypeScript friendly next generation markdown editor with sp
   sandbox="allow-forms allow-modals allow-popups allow-presentation allow-same-origin allow-scripts"
 ></iframe>
 
-## Overview
+## Install
 
+You should also import zenn-markdown-html as peer dependencies
+
+```sh
+$ npm install react-split-mde zenn-markdown-html --save
+```
+
+## Overview
 
 ```js
 import { useState } from "react"
 import { Editor } from "react-split-mde"
+import { parser } from 'react-split-mde/lib/parser';
 import "react-split-mde/css/index.css"
 
 const defaultValue = "# React Split MDE"
@@ -32,6 +40,7 @@ export const EditorDemo = () => {
 
   return (<Editor 
     value={value}
+    parser={parser}
     onChange={handleValueChange} 
   />)
 }
